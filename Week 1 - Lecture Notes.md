@@ -73,9 +73,7 @@ starting Week 4 when we build RESTful APIs.
 
 ## 5. A Quick Survey of Web Application Frameworks
 
-A web application framework (WAF) typically gives you routing, templating,
-an ORM, and security middleware, so you're not rebuilding those from
-scratch on every project.
+A web application framework (WAF) typically gives you routing, templating, an ORM (Object-Relational Mapping. It's a technique that lets you work with a database using your programming language's objects and methods instead of writing raw SQL), and security middleware, so you're not rebuilding those from scratch on every project.
 
 Some other ecosystems you'll hear about:
 
@@ -83,11 +81,7 @@ Some other ecosystems you'll hear about:
 - Java / Spring Boot
 - C# / ASP.NET Core
 
-We're using **Python/Django** for the whole course. It's batteries-included
-(ORM, admin panel, security defaults out of the box), and the syntax is
-approachable while you're learning the underlying concepts. Keep in mind:
-Django is the vehicle here, not the destination. The concepts (MVC, REST,
-ORM, sessions) transfer to any framework you use after this course.
+We're using **Python/Django** for the whole course. It's batteries-included (ORM, admin panel, security defaults out of the box), and the syntax is approachable while you're learning the underlying concepts. Keep in mind: Django is the vehicle here, not the destination. The concepts (MVC, REST, ORM, sessions) transfer to any framework you use after this course.
 
 ---
 
