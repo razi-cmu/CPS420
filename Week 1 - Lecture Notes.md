@@ -81,7 +81,7 @@ Some other ecosystems you'll hear about:
 - Java / Spring Boot
 - C# / ASP.NET Core
 
-We're using **Python/Django** for the whole course. It's batteries-included (ORM, admin panel, security defaults out of the box), and the syntax is approachable while you're learning the underlying concepts. Keep in mind: Django is the vehicle here, not the destination. The concepts (MVC, REST, ORM, sessions) transfer to any framework you use after this course.
+We're using **Python/Django** for the whole course. Keep in mind: Django is the vehicle here, not the destination. The concepts (MVC, REST, ORM, sessions) transfer to any framework you use after this course.
 
 ---
 
