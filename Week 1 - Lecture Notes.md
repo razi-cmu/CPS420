@@ -224,7 +224,7 @@ core distinction students need to walk away with today.
 
 ---
 
-## Bonus Activity (Ungraded, At Home)
+## Bonus Activity (Ungraded)
 
 Extend the `contact` view:
 
