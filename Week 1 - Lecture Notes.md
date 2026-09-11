@@ -113,7 +113,7 @@ That page being rendered *is* the request/response cycle we just talked
 about: your browser sent a GET request, the dev server processed it, and
 sent back an HTML response.
 
-### A note on project structure (and a deliberate shortcut)
+### Project structure
 
 `django-admin startproject mysite` creates two levels:
 
