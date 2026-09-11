@@ -67,14 +67,9 @@ starting Week 4 when we build RESTful APIs.
 - **IDE**: VS Code is recommended, but any editor works.
 - **Python virtual environments**: isolate each project's dependencies so
   they don't collide with each other or your system Python.
-- **Git**: commit, branch, push, pull. We'll use GitHub as the repo host
-  for assignments.
-- **FTP/SFTP**: how files move to a remote server. We'll only touch this
-  lightly now; it matters more once we get to deployment and HTTPS in
-  Week 8.
-- **Web servers**: Apache and Nginx are common in production. Django ships
-  with its own lightweight dev server, which is what we'll use all
-  semester for local development.
+- **Git**:  We'll use GitHub as the repo host for lecture notes.
+- **FTP/SFTP**: how files move to a remote server. It matters more once we get to deployment and HTTPS.
+- **Web servers**: Apache and Nginx are common in production. Django ships with its own lightweight dev server, which is what we'll use all semester for local development.
 
 ## 5. A Quick Survey of Web Application Frameworks
 
