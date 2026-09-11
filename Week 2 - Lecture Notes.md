@@ -1,19 +1,6 @@
 # Week 2: Web Frameworks, MVC and Multi-Tier (N-Tier) Architecture
 
-## 1. From Week 1 to a Real Problem
-
-Last week we got a view and a form working, but everything lived in one
-file inside the mysite config package: request handling, the response
-text, all of it tangled together. That was fine for a two-view demo. It
-falls apart the moment a project grows past a handful of pages, because
-there's no separation between what the app does, what it stores, and
-what the user sees.
-
-MVC is the answer to that problem. It's not specific to Django or even to
-web development. It's a way of organizing any application with a user
-interface.
-
-## 2. What Is MVC?
+## 1. What Is MVC?
 
 Model, View, Controller splits an application into three roles:
 
