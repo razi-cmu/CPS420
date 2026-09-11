@@ -12,7 +12,7 @@ Model, View, Controller splits an application into three roles:
 The point isn't the three names. It's that each piece can change on its
 own. A template can be redesigned without touching business logic. A
 database schema can change without rewriting the UI. That independence is
-what makes a codebase maintainable past week one of a project.
+what makes a codebase maintainable.
 
 ## 3. N-Tier Architecture
 
