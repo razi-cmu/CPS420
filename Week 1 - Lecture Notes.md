@@ -230,15 +230,15 @@ Extend the `contact` view:
 
 1. Add a second field to the form, e.g. `name`.
 2. On POST, return a response that includes both `name` and `message`.
-3. Add basic validation: if either field is empty, re-render the form with
-   an error message instead of processing the submission.
-4. Optional stretch: use your browser's dev tools (Network tab) to inspect
-   the actual request your form sent. Find the request method, the request
-   body, and the response status code. Confirm they match what we covered
-   in lecture.
 
 This doesn't need to be submitted. It's meant to get your hands on the
 request/response cycle one more time before Week 2, where we start
 organizing this kind of code properly with MVC, including refactoring
 today's `views.py` and `form.html` out of the config package and into a
 proper Django app.
+
+## References
+- Django 5 by Example : Build Powerful and Reliable Python Web Applications from Scratch
+  - Chapter 1: Building a Blog Application
+- [W3Schools Django Tutorials](https://www.w3schools.com/django/django_intro.php) 
+
