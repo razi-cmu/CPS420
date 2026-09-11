@@ -14,7 +14,7 @@ own. A template can be redesigned without touching business logic. A
 database schema can change without rewriting the UI. That independence is
 what makes a codebase maintainable.
 
-## 3. N-Tier Architecture
+## 2. N-Tier Architecture
 
 N-tier is the same idea applied at a larger scale, often across physical
 or network boundaries rather than just files in a project:
@@ -30,7 +30,7 @@ The Controller lives in the application tier, coordinating between the
 View and the Model. The Model corresponds to the data tier, which we'll
 build out properly in Week 6 with the ORM.
 
-## 4. Django's Flavor: MVT
+## 3. Django's Flavor: MVT
 
 Django calls its pattern MVT: Model, View, Template. The names don't line
 up cleanly with classic MVC, and that trips people up, so here's the
@@ -60,7 +60,7 @@ Same three roles, same reasons for separating them, different names and
 syntax. That's what CLO 2 is actually asking you to recognize: the
 pattern, not the Django API for it.
 
-## 5. Django Apps vs the Project
+## 4. Django Apps vs the Project
 
 A Django project is the whole site: settings, top-level URL routing,
 deployment configuration. An app is a self-contained bundle of related
@@ -135,7 +135,7 @@ The project's urls.py now only knows that core handles some set of
 routes. It doesn't need to know which ones. That's the separation doing
 its job already.
 
-## 6. Where Templates Live Now
+## 5. Where Templates Live Now
 
 App-level templates go in a nested folder: core/templates/core/. The
 extra core/ inside templates/ looks redundant with one app, but it
@@ -143,7 +143,7 @@ namespaces the template so that render(request, "core/form.html") can't
 collide with another app's form.html once you have more than one. This
 is a Django convention worth adopting from day one.
 
-## 7. The Django Template Language
+## 6. The Django Template Language
 
 Templates use two kinds of markup:
 
@@ -163,7 +163,7 @@ actually work in practice instead of just being a folder structure.
 {% endif %}
 ```
 
-## 8. Template Inheritance
+## 7. Template Inheritance
 
 Repeating the same HTML skeleton (head, nav, footer) in every template is
 exactly the kind of duplication MVC is meant to prevent. Django handles
@@ -192,7 +192,7 @@ A child template extends it and only fills in the block:
 {% endblock %}
 ```
 
-## 9. Data Grids: Rendering Lists
+## 8. Data Grids: Rendering Lists
 
 A data grid is just a list of records rendered as rows, one of the most
 common things a web app does. We're not touching a real database until
