@@ -16,9 +16,7 @@ between two places:
 
 !["Web App"](./images/Web_App.png)
 
-The client sends a **request**. The server processes it and sends back a
-**response**. That's the entire loop, repeated millions of times a second
-across the web.
+The client sends a request. The server processes it and sends back a response. That's the entire loop, repeated millions of times a second across the web.
 
 A few things worth internalizing early:
 
