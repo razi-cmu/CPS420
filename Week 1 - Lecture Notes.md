@@ -85,7 +85,7 @@ We're using **Python/Django** for the whole course. Keep in mind: Django is the 
 
 ---
 
-## Live-Coding Exercise: Your First Django Project
+## Exercise: Your First Django Project
 
 **Goal:** get a Django project running locally and see the request/response
 cycle happen in front of you.
