@@ -307,6 +307,9 @@ This is the client-side code. Its job is to make a remote Django function call l
 
 Run the client while the dev server is up. It never touches our database or our Python code directly, it only knows the URL and the method names, exactly like `soap_consumer_demo.py` in Exercise 1 only knew the calculator service's URL and its WSDL. That's the loose coupling and standardized contract principles in practice.
 
+Here is an overall flow of the above exercise:
+!["RPC Request Lifecycle"](./images/RPC_XML_Request_Lifecycle.png)
+
 ## Bonus activity (ungraded, at home)
 
 Add a `check_stock(title)` function to `rpc.py` that looks up a book and raises a proper XML-RPC fault if the title doesn't exist, instead of letting the dispatcher raise the generic, uncontrolled fault described in Step 3 above:
