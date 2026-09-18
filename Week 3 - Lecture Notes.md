@@ -2,7 +2,7 @@
 
 This week we look at how two separate programs talk to each other. This is one of the most important concepts to learn as you'll often work with systems that would like to share some information with your web apps.
 
-## What is a web service
+## What is a web service?
 
 A web service is a way for one program to call another program's functionality over a network, using a protocol both sides agree on ahead of time. There's no human clicking links, no HTML rendering. Just structured requests and structured responses.
 
