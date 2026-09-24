@@ -308,7 +308,7 @@ This is the client-side code. Its job is to make a remote Django function call l
 Run the client while the dev server is up. It never touches our database or our Python code directly, it only knows the URL and the method names, exactly like `soap_consumer_demo.py` in Exercise 1 only knew the calculator service's URL and its WSDL. That's the loose coupling and standardized contract principles in practice.
 
 Here is an overall flow of the above exercise:
-!["RPC Request Lifecycle"](./images/RPC_XML_Request_Lifecycle.png)
+!["RPC Request Lifecycle" width="300" height="200"](./images/RPC_XML_Request_Lifecycle.png)
 
 ## Bonus activity (ungraded, at home)
 
