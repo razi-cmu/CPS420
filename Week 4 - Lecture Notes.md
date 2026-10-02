@@ -547,8 +547,8 @@ The interesting lines of output:
 
 ## Bonus Activity (Ungraded, at home)
 Try to add the following features:
-- Add a delete method that removes the book from BOOKS and returns a 204 with no body.
-- Let BookListAPI.get filter by stock status through a query string, for example /api/v2/books/?in_stock=true. Use request.query_params.
+- Add a `delete` method that removes the book from `BOOKS` and returns a `204` with no body.
+- Let `BookListAPI.get` filter by stock status through a query string, for example `/api/v2/books/?in_stock=true`. Use `request.query_params`.
 
 Something to think about: delete the same book twice. The first call returns 204 and the second returns 404. Does that mean DELETE isn't idempotent after all? Consider what idempotency actually promises about the state of the server compared with the response the client receives.
 
