@@ -545,7 +545,12 @@ The interesting lines of output:
 404 {'detail': 'Book not found.'}
 ```
 
-The bad request that crashed Exercise 1 now comes back as a 400 that names every problem at once. A front-end developer can show those messages directly beside the form fields, which is exactly what we'll do in Week 7.
+## Bonus Activity (Ungraded, at home)
+Try to add the following features:
+- Add a delete method that removes the book from BOOKS and returns a 204 with no body.
+- Let BookListAPI.get filter by stock status through a query string, for example /api/v2/books/?in_stock=true. Use request.query_params.
+
+Something to think about: delete the same book twice. The first call returns 204 and the second returns 404. Does that mean DELETE isn't idempotent after all? Consider what idempotency actually promises about the state of the server compared with the response the client receives.
 
 ### What DRF Bought Us
 
