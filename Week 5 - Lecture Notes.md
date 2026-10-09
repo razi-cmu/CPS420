@@ -504,9 +504,10 @@ Extend Exercise 2 so the catalog survives a server restart, and export it as XML
 4. Discussion: imagine the app running with four worker processes. For each of these, decide whether all workers would see the same data and why: the session cart (database backend), the `LocMemCache` statistics, the `BOOKS` list, and `books.json`. What could still go wrong with the file even if every worker reads it?
 
 ## References
-
-Django Software Foundation. (n.d.). Django's cache framework. Django documentation. https://docs.djangoproject.com/en/5.0/topics/cache/
-
-Django Software Foundation. (n.d.). How to use sessions. Django documentation. https://docs.djangoproject.com/en/5.0/topics/http/sessions/
+- Django 5 by Example: Build Powerful and Reliable Python Web Applications from Scratch
+    - Chapter 8: Building an Online Shop
+    - Chapter 14: Rendering and Caching Content
+- Django Software Foundation. (n.d.). Django's cache framework. Django documentation. https://docs.djangoproject.com/en/5.0/topics/cache/
+- Django Software Foundation. (n.d.). How to use sessions. Django documentation. https://docs.djangoproject.com/en/5.0/topics/http/sessions/
 
 Melé, A. (2024). Django 5 by example (5th ed., Chapters 8 and 14). Packt Publishing.
