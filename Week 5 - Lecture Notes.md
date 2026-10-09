@@ -509,5 +509,3 @@ Extend Exercise 2 so the catalog survives a server restart, and export it as XML
     - Chapter 14: Rendering and Caching Content
 - Django Software Foundation. (n.d.). Django's cache framework. Django documentation. https://docs.djangoproject.com/en/5.0/topics/cache/
 - Django Software Foundation. (n.d.). How to use sessions. Django documentation. https://docs.djangoproject.com/en/5.0/topics/http/sessions/
-
-Melé, A. (2024). Django 5 by example (5th ed., Chapters 8 and 14). Packt Publishing.
