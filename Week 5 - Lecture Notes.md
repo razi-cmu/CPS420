@@ -123,7 +123,7 @@ Cookies, sessions, and caching are HTTP-level ideas, so every web framework offe
 
 If you understand what a session ID cookie does and why a cache needs invalidation, switching frameworks is mostly a matter of looking up names.
 
-## Live-Coding Exercise 1: Cookies and a Session Cart
+## Exercise 1: Cookies and a Session Cart
 
 We continue the `bookstore` project and its `catalog` app. This exercise builds a raw cookie first so you can see its weakness, then a cart stored safely in the session.
 
@@ -333,7 +333,7 @@ The DELETE returns 204 and the next GET shows an empty cart. In the shell, `get_
 
 In `cart_view`, comment out `request.session[CART_KEY] = cart`, save, and run the client again. Each POST response still lists the item from that one request, because `cart_payload` reads the local dictionary. But the second POST shows only book 2, the shopper's cookie jar is empty, and the final GET returns an empty cart. Changing a local dictionary never told Django the session changed, so nothing was saved and no session cookie was ever issued. Restore the line before moving on.
 
-## Live-Coding Exercise 2: Caching a Slow Endpoint
+## Exercise 2: Caching a Slow Endpoint
 
 Now we look at shared, server-side state. We will build an endpoint that is slow on purpose, cache it two different ways, and see how each one copes when the data changes.
 
