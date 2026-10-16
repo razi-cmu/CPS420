@@ -49,6 +49,8 @@ async function countBooks() {
 
 `await` pauses only the function it appears in until the promise settles. The rest of the page keeps running. An `async` function itself returns a promise, so other code can call it without waiting, or `await` it if it needs the result.
 
+!["Promises in JavaScript"](./images/JS_Promise.png)
+
 ## The Fetch API
 
 `fetch(url, options)` sends one HTTP request; with no options it sends a GET. Everything we did with `requests` in Python has an equivalent:
