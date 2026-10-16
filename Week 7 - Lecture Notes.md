@@ -25,7 +25,7 @@ A synchronous call blocks: the caller waits until the answer arrives. Our Python
 
 A page can't work like that. JavaScript in a browser tab runs on a single thread, the same thread that handles clicks, scrolling, and typing. If it sat waiting two seconds for `/api/stats/`, the tab would freeze for two seconds. So browser requests are asynchronous: JavaScript starts the request, carries on, and gets called back when the response arrives.
 
-![Sync vs. Async calls]("images/Sync_vs_Async.png")
+!["Sync vs. Async calls"](./images/Sync_vs_Async.png)
 
 The browser manages this with a queue of jobs, the FIFO queue from your data structures course. JavaScript runs one job to completion, then takes the next one. When a response arrives, the browser adds "handle this response" to the back of the queue. Code that waits for the network never interrupts other code; it runs later, as its own job.
 
