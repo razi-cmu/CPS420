@@ -433,14 +433,8 @@ Week 7 ended with "the client makes mistakes unlikely; only the server can make 
 
 - Django 5 by Example: Build Powerful and Reliable Python Web Applications from Scratch
     - Chapter 17: Going Live
-
-OWASP Foundation. (2025). OWASP Top 10:2025. https://owasp.org/Top10/2025/
-
-Django Software Foundation. (n.d.). Security in Django. Django documentation. https://docs.djangoproject.com/en/stable/topics/security/
-
-Django Software Foundation. (n.d.). Deployment checklist. Django documentation. https://docs.djangoproject.com/en/stable/howto/deployment/checklist/
-
-Django Software Foundation. (n.d.). Testing tools. Django documentation. https://docs.djangoproject.com/en/stable/topics/testing/tools/
+- Django Software Foundation. (n.d.). Security in Django. Django documentation. https://docs.djangoproject.com/en/stable/topics/security/
+- Django Software Foundation. (n.d.). Testing tools. Django documentation. https://docs.djangoproject.com/en/stable/topics/testing/tools/
 
 Federal Trade Commission. (n.d.). Protecting consumer privacy and security. https://www.ftc.gov/news-events/topics/protecting-consumer-privacy-security
 
