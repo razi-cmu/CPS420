@@ -264,7 +264,7 @@ Expected output:
 201 {"id":5,"title":"No Token","author":"Anon","price":1.0,"in_stock":true}
 ```
 
-No CSRF token, no login, and the book was created anyway. Two lessons are hiding here. DRF skips the CSRF check because no one is logged in, so there is no session for an attacker to borrow. And the API has no access control at all: anyone on the internet can add books. That is A01, Broken Access Control, the top risk on the list. (The bonus activity fixes it.)
+No CSRF token, no login, and the book was created anyway. Two lessons are hiding here. DRF skips the CSRF check because no one is logged in, so there is no session for an attacker to borrow. And the API has no access control at all: anyone on the internet can add books. That is A01, Broken Access Control, the top risk on the list.
 
 Now log in. Visit `http://127.0.0.1:8000/admin/`, sign in with the account from Step 1, then go back to `/shop/`, press Ctrl+F5, and paste the same block in the Console again:
 
@@ -302,7 +302,7 @@ You'll get seven security warnings. The IDs and what each one means:
 | `security.W018` | `DEBUG` is `True` |
 | `security.W020` | `ALLOWED_HOSTS` is empty |
 
-On Django 6.1 or newer, you'll also see an error `mail.E001` about the development email backend. We don't send email, so ignore it. The "HSTS and secure cookies" section above shows the settings that clear these warnings in production.
+On Django 6.1 or newer, you'll also see an error `mail.E001` about the development email backend. We don't send email, so ignore it.
 
 ## Exercise 2: Testing and Hardening
 
