@@ -435,7 +435,3 @@ Week 7 ended with "the client makes mistakes unlikely; only the server can make 
     - Chapter 17: Going Live
 - Django Software Foundation. (n.d.). Security in Django. Django documentation. https://docs.djangoproject.com/en/stable/topics/security/
 - Django Software Foundation. (n.d.). Testing tools. Django documentation. https://docs.djangoproject.com/en/stable/topics/testing/tools/
-
-Federal Trade Commission. (n.d.). Protecting consumer privacy and security. https://www.ftc.gov/news-events/topics/protecting-consumer-privacy-security
-
-European Commission. (n.d.). Data protection explained. https://commission.europa.eu/law/law-topic/data-protection/data-protection-explained_en
