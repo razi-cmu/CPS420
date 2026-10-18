@@ -14,6 +14,8 @@ own. A template can be redesigned without touching business logic. A
 database schema can change without rewriting the UI. That independence is
 what makes a codebase maintainable.
 
+!["MVC"](./images/mvc.png)
+
 ## 2. N-Tier Architecture
 
 N-tier is the same idea applied at a larger scale, often across physical
