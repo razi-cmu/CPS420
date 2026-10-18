@@ -26,11 +26,9 @@ or network boundaries rather than just files in a project:
   get made
 - Data tier: where information is stored and retrieved
 
-MVC is one common way to implement the presentation and application
-tiers of an N-tier system. The View corresponds to the presentation tier.
-The Controller lives in the application tier, coordinating between the
-View and the Model. The Model corresponds to the data tier, which we'll
-build out properly in Week 6 with the ORM.
+MVC is one common way to implement the presentation and application tiers of an N-tier system. The View corresponds to the presentation tier. The Controller lives in the application tier, coordinating between the View and the Model. 
+
+!["N-Tier Architecture"](./images/n_tier.png)
 
 ## 3. Django's Flavor: MVT
 
