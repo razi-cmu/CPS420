@@ -109,11 +109,63 @@ RPC is the idea of calling a function on a remote machine and having it feel lik
 
 ## Exercise 1: Consuming a public SOAP service
 
-Plenty of real systems, banks, shipping carriers, older government platforms, still expose SOAP services, and consuming one is a common integration task. We'll use a long-standing public demo SOAP service so the mechanics are visible without needing an account or API key.
+Plenty of real systems, banks, shipping carriers, older government platforms, still expose SOAP services, and consuming one is a common integration task. This exercise is only about the consumer side: we use a service somebody else built and never touch its code. We'll use a long-running public calculator service that adds two whole numbers. It is deliberately boring, so all the attention goes to the SOAP message instead of the business logic.
 
-Install the client library first: `pip install zeep`.
+We call it twice, first by hand so the SOAP messages are visible, then with zeep so you can see how much work a library takes off your hands.
 
-`soap_consumer_demo.py`:
+### Step 1: Look at the contract in a browser
+
+Open `http://www.dneonline.com/calculator.asmx?op=Add`. This page describes the `Add` operation and shows a sample SOAP request and a sample SOAP response. The request has a Body holding an `Add` element with two children, `intA` and `intB`, and the response has an `AddResponse` element with one child, `AddResult`. It is the service's contract in readable form, and it is exactly the `Envelope` and `Body` structure from the message structure section earlier in these notes.
+
+### Step 2: Send a SOAP request by hand
+Create a python file, `soap_consumer_demo.py` and write the following code in it.
+```python
+import requests
+
+URL = "http://www.dneonline.com/calculator.asmx"
+
+request_xml = """<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <Add xmlns="http://tempuri.org/">
+      <intA>4</intA>
+      <intB>5</intB>
+    </Add>
+  </soap:Body>
+</soap:Envelope>"""
+
+headers = {
+    "Content-Type": "text/xml; charset=utf-8",
+    "SOAPAction": '"http://tempuri.org/Add"',
+    "User-Agent": "Mozilla/5.0",
+}
+
+response = requests.post(URL, data=request_xml, headers=headers)
+print(response.status_code)
+print(response.text)
+
+```
+The request is the sample from Step 1 with real numbers filled in. SOAP 1.1 travels as an ordinary HTTP POST with a text/xml content type, and the SOAPAction header tells the server which operation the message is for. The xmlns on the Add element is the service's namespace, taken from its WSDL, and it tells the server which vocabulary the element names belong to.
+
+The User-Agent line is there for a practical reason. This server drops the connection without any reply when a request announces itself as the default python-requests client, so we send a browser-style value instead. It is a small real-world lesson: a service can refuse a perfectly valid message because of something outside the contract, and the error you see (a reset connection, no SOAP Fault at all) says nothing about the XML. Try deleting that line and running the script to see it happen.
+
+Run it. You should see `200` and a response envelope with the same `Envelope` and `Body` shape as the request, printed as one long line. Inside the Body is `AddResponse`, and inside that is `AddResult` holding `9`. That is all a SOAP response is, an envelope around the answer.
+
+### Step 3: Read the result
+The response is just text, so to use the answer we have to parse it. Add this to the end of `soap_consumer_demo.py`
+```python
+import xml.etree.ElementTree as ET
+
+root = ET.fromstring(response.text)
+total = root.find(".//{http://tempuri.org/}AddResult").text
+print(f"4 + 5 = {total}")
+```
+
+`ElementTree` is part of Python's standard library, so nothing new to install. The curly braces hold the namespace, because `AddResult` lives in the service's namespace and a plain `find("AddResult")` would match nothing. Run it again and the last line prints `4 + 5 = 9`.
+
+### Step 4: The same call with zeep
+
+Install the client library first: `pip install zeep`. Remove the previous code from `soap_consumer_demo.py` and add the following code:
 
 ```python
 from zeep import Client
@@ -123,19 +175,9 @@ result = client.service.Add(4, 5)
 print(f"4 + 5 = {result}")
 ```
 
-Walking through what each line actually does:
+Same answer, three lines. `Client(...)` does not just store a URL, it fetches the WSDL at that address and reads it. The `?WSDL` at the end is a convention on services built with older Microsoft tooling: the base address is the live endpoint, and adding that query string asks the server for its contract document instead of handling a call. From the WSDL's messages, operations, and bindings, `zeep` builds `client.service`, an object with one Python method for every operation the contract declares. Nothing about `Add` is hardcoded in zeep, it exists because the WSDL said it should.
 
-`Client("http://www.dneonline.com/calculator.asmx?WSDL")` does not just store a URL, it immediately fetches the document at that address and parses it as WSDL. The `?WSDL` at the end is a common convention for services built on older Microsoft ASP.NET tooling: the base address (`calculator.asmx`) is the live service endpoint, and adding that query string to the same address asks the server to return its contract document instead of handling a call. `zeep` reads every `message`, `portType`, and `binding` in that document, the same elements from the WSDL section earlier in these notes, and uses them to build `client.service`, an object with one Python method for every operation the contract declares. Nothing about `Add` is hardcoded into `zeep` itself, it exists purely because the WSDL said it should.
-
-`client.service.Add(4, 5)` looks like an ordinary function call, but `client.service` isn't a real class with a real `Add` method written anywhere. Calling it triggers `zeep` to build a SOAP envelope, Envelope, Body, and an `Add` element carrying `4` and `5` as its parameters, matching the message shape from the WSDL, send it as an HTTP POST to the service's real endpoint, and parse whatever SOAP response comes back into a plain Python value.
-
-You can also see the discoverability principle directly by printing what the client found:
-
-```python
-client.wsdl.dump()
-```
-
-This prints every operation and message type the WSDL defines, all pulled automatically from the service's own contract, without needing separate documentation.
+So `client.service.Add(4, 5)` does everything Steps 2 and 3 did by hand. It builds the `Envelope` and `Body` with the two numbers inside, sets the content type and SOAPAction headers, sends the POST, and parses the response back into a plain Python number. 
 
 ## Exercise 2: A provider and a client, both under our control
 
